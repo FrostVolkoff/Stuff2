@@ -2,19 +2,19 @@
 include 'db/connect.php';
 include 'includes/header.php';
 
-echo '<h2>Create a category</h2>';
+echo '<h2>Criar Categoria</h2>';
 if($_SESSION['signed_in'] == false | $_SESSION['user_level'] != 1 )
 {
-	echo 'Sorry, you do not have sufficient rights to access this page.';
+	echo 'Nao tem permissao suficiente para criar categorias. Se acha que isto é um erro, por favor contacte o Administrador.';
 }
 else
 {
 	if($_SERVER['REQUEST_METHOD'] != 'POST')
 	{
 		echo '<form method="post" action="">
-			Category name: <input type="text" name="cat_name" /><br />
-			Category description:<br /> <textarea name="cat_description" /></textarea><br /><br />
-			<input type="submit" value="Add category" />
+			Nome da Categoria: <input type="text" name="cat_name" /><br />
+			Descricao da Categoria:<br /> <textarea name="cat_description" /></textarea><br /><br />
+			<input type="submit" value="Adicionar Categoria" />
 		 </form>';
 	}
 	else
@@ -25,11 +25,11 @@ else
 		$result = mysql_query($sql);
 		if(!$result)
 		{
-			echo 'Error' . mysql_error();
+			echo 'Erro' . mysql_error();
 		}
 		else
 		{
-			echo 'New category succesfully added.';
+			echo 'Categoria criada. <a href="create_cat.php">Criar uma nova?</a>';
 		}
 	}
 }

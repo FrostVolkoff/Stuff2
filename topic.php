@@ -14,13 +14,13 @@ $result = mysql_query($sql);
 
 if(!$result)
 {
-	echo 'The topic could not be displayed, please try again later.';
+	echo 'O topico nao pode ser apresentado. Por favor contacte o Administrador.';
 }
 else
 {
 	if(mysql_num_rows($result) == 0)
 	{
-		echo 'This topic doesn&prime;t exist.';
+		echo 'O topico nao existe.';
 	}
 	else
 	{
@@ -50,7 +50,7 @@ else
 			
 			if(!$posts_result)
 			{
-				echo '<tr><td>The posts could not be displayed, please try again later.</tr></td></table>';
+				echo '<tr><td>Os topicos nao poderam ser apresentados. Por favor contacte o Administrador.</tr></td></table>';
 			}
 			else
 			{
@@ -66,14 +66,14 @@ else
 			
 			if(!$_SESSION['signed_in'])
 			{
-				echo '<tr><td colspan=2>You must be <a href="signin.php">signed in</a> to reply. You can also <a href="signup.php">sign up</a> for an account.';
+				echo '<tr><td colspan=2>Precisa de ter a <a href="signin.php">sessao iniciada</a> para responder.';
 			}
 			else
 			{
-				echo '<tr><td colspan="2"><h2>Reply:</h2><br />
+				echo '<tr><td colspan="2"><h2>Resposta:</h2><br />
 					<form method="post" action="reply.php?id=' . $row['topic_id'] . '">
 						<textarea name="reply-content"></textarea><br /><br />
-						<input type="submit" value="Submit reply" />
+						<input type="submit" value="Responder" />
 					</form></td></tr>';
 			}
 			
@@ -82,5 +82,5 @@ else
 	}
 }
 
-//include 'includes/footer.php';
+include 'includes/footer.php';
 ?>

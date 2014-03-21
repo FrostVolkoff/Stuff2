@@ -1,5 +1,5 @@
-	</div><!-- content -->
-</div><!-- wrapper -->
+	</div>
+</div>
 <div id="footer"></div>
 </body>
 </html>

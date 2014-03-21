@@ -6,14 +6,14 @@ echo '<h3>Sign in</h3><br />';
 
 if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
 {
-	echo 'You are already signed in, you can <a href="signout.php">sign out</a> if you want.';
+	echo 'Ja está com a sessao iniciada, pode <a href="signout.php">Terminar sessão</a> caso não seja o seu utilizador.';
 }
 else
 {
 	if($_SERVER['REQUEST_METHOD'] != 'POST')
 	{
 		echo '<form method="post" action="">
-			Username: <input type="text" name="user_name" /><br />
+			Nome de Utilizador: <input type="text" name="user_name" /><br />
 			Password: <input type="password" name="user_pass"><br />
 			<input type="submit" value="Sign in" />
 		 </form>';
@@ -24,17 +24,17 @@ else
 		
 		if(!isset($_POST['user_name']))
 		{
-			$errors[] = 'The username field must not be empty.';
+			$errors[] = 'O nome de utilizador nao pode ficar em branco.';
 		}
 		
 		if(!isset($_POST['user_pass']))
 		{
-			$errors[] = 'The password field must not be empty.';
+			$errors[] = 'A password nao pode ficar em branco.';
 		}
 		
 		if(!empty($errors))
 		{
-			echo 'Uh-oh.. a couple of fields are not filled in correctly..<br /><br />';
+			echo 'Os campos nao foram preenchidos corretamente.<br /><br />';
 			echo '<ul>';
 			foreach($errors as $key => $value)
 			{
@@ -58,14 +58,14 @@ else
 			$result = mysql_query($sql);
 			if(!$result)
 			{
-				echo 'Something went wrong while signing in. Please try again later.';
+				echo 'Ocorreu um erro. Por favor contacte o Administrador.';
 				//echo mysql_error();
 			}
 			else
 			{
 				if(mysql_num_rows($result) == 0)
 				{
-					echo 'You have supplied a wrong user/password combination. Please try again.';
+					echo 'Nome de Utilizador ou password errados.';
 				}
 				else
 				{
@@ -78,12 +78,12 @@ else
 						$_SESSION['user_level'] = $row['user_level'];
 					}
 					
-					echo 'Welcome, ' . $_SESSION['user_name'] . '. <br /><a href="index.php">Proceed to the forum overview</a>.';
+					echo 'Bem vindo, ' . $_SESSION['user_name'] . '. <br /><a href="newindex.php">Proceder para o forum</a>.';
 				}
 			}
 		}
 	}
 }
 
-//include 'includes/footer.php';
+include 'includes/footer.php';
 ?>

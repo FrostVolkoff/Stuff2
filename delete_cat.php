@@ -2,6 +2,13 @@
 include 'db/connect.php';
 include 'includes/header.php';
 
+//protectPage(); hummm ... conheco isto de algum lado ... meh, anyways ... 
+
+if(isset($_POST['submit']))
+{
+mysql_query("DELETE FROM categories where cat_id = '".$_POST['hid_catid']."'");
+}
+
 $sql = "SELECT
 			categories.cat_id,
 			categories.cat_name,
@@ -15,9 +22,10 @@ $sql = "SELECT
 			topics.topic_id = categories.cat_id
 		GROUP BY
 			categories.cat_name, categories.cat_description, categories.cat_id";
-			
+		
 $result = mysql_query($sql);
 ?>
+
 <div forum>
 	<table class="tabletitle">
 		<tr>
@@ -25,11 +33,11 @@ $result = mysql_query($sql);
 			<td>2.Ultimo Topico</td>
 			<td>3.Descrição</td>
 			<?php
-			//make this work ASAP!!! DONEEEEEEEEEEEEEEE
+			//make this work ASAP!!!
 			if(isset($_SESSION['signed_in']) && $_SESSION['user_level'] == 1)
 			{
 				echo '<a class="item5" href="create_cat.php">Criar Categoria</a>';
-				echo '<a class="item5" href="delete_cat.php">Apagar</a> <p>';
+				//echo '<a class="item5" href="delete_cat.php">Delete</a> <p>';
 			}
 			?>
 		</tr>
@@ -52,7 +60,7 @@ $result = mysql_query($sql);
 				{
 	?>
 		<tr>
-			<td><?= '<a href="newcategory.php?id=' . $row['cat_id']. '">' . $row['cat_name'] . '</a>'; ?></td>
+			<td><?= '<a href="category.php?id=' . $row['cat_id']. '">' . $row['cat_name'] . '</a>'; ?></td>
 			<td><?php $topicsql = "SELECT
 								topic_id,
 								topic_subject,
@@ -72,7 +80,7 @@ $result = mysql_query($sql);
 				
 				if(!$topicsresult)
 				{
-					echo 'Last topic could not be displayed.';
+					echo 'O ultimo topico nao pode ser visualizado.';
 				}
 				else
 				{
@@ -84,16 +92,32 @@ $result = mysql_query($sql);
 					{
 						while($topicrow = mysql_fetch_assoc($topicsresult))
 						echo '<a href="topic.php?id=' . $topicrow['topic_id'] . '">' . $topicrow['topic_subject'] . '</a> at ' . date('d-m-Y', strtotime($topicrow['topic_date']));
+						
 					}
 				}
 				?>
 				</td>
 				<td><?= $row['cat_description']; ?></td>
+				
+				<?php
+					if(isset($_SESSION['signed_in']) && $_SESSION['user_level'] == 1)
+					{
+				?>
+					<td>
+						<form method="post">
+							<input type="hidden" name="hid_catid" id="hid_catid" value="<?= $row['cat_id'] ?>">
+							<input type="submit" name="submit" value="Remover" />
+						</form>
+					</td>
+				<?php
+				}
+				?>
+					
 		</tr>
 	<?php
-				}
-			}
-		}
+				}//fecha o while
+			}//fecha o else
+		}// fecha o else
 	?>
 	</table>
 </div>

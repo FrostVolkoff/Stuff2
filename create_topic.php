@@ -2,10 +2,15 @@
 include 'db/connect.php';
 include 'includes/header.php';
 
-echo '<h2>Create a topic</h2>';
+if(isset($_GET['cat_id']))
+{
+	$topic_cat = $_GET['cat_id'];
+}
+
+echo '<h2>Criar Topico</h2>';
 if($_SESSION['signed_in'] == false)
 {
-	echo 'Sorry, you have to be <a href="/forum/signin.php">signed in</a> to create a topic.';
+	echo 'Tem que estar com a <a href="/forum/signin.php">Sessao iniciada</a> para criar um topico.';
 }
 else
 {
@@ -22,7 +27,7 @@ else
 		
 		if(!$result)
 		{
-			echo 'Error while selecting from database. Please try again later.';
+			echo 'Erro. Por favor contacte o Administrador.';
 		}
 		else
 		{
@@ -30,29 +35,29 @@ else
 			{
 				if($_SESSION['user_level'] == 1)
 				{
-					echo 'You have not created categories yet.';
+					echo 'Sem categorias criadas.';
 				}
 				else
 				{
-					echo 'Before you can post a topic, you must wait for an admin to create some categories.';
+					echo 'Antes de adicionar topico, o administrador tem que criar categorias.';
 				}
 			}
 			else
 			{
 		
 				echo '<form method="post" action="">
-					Subject: <input type="text" name="topic_subject" /><br />
-					Category:'; 
+					Assunto: <input type="text" name="topic_subject" /><br />
+					Categoria:'; 
 				
-				echo '<select name="topic_cat">';
+				/* echo '<select name="topic_cat">';
 					while($row = mysql_fetch_assoc($result))
 					{
 						echo '<option value="' . $row['cat_id'] . '">' . $row['cat_name'] . '</option>';
 					}
-				echo '</select><br />';	
+				echo '</select><br />';	 */
 					
-				echo 'Message: <br /><textarea name="post_content" /></textarea><br /><br />
-					<input type="submit" value="Create topic" />
+				echo 'Mensagem: <br /><textarea name="post_content" /></textarea><br /><br />
+					<input type="submit" value="Criar topico" />
 				 </form>';
 			}
 		}
@@ -64,25 +69,26 @@ else
 		
 		if(!$result)
 		{
-			echo 'An error occured while creating your topic. Please try again later.';
+			echo 'Ocorreu um erro. Por favor contacte o Administrador.';
 		}
 		else
 		{
+			global $cat;
 			$sql = "INSERT INTO 
-						topics(topic_subject,
+						topics (topic_subject,
 							   topic_date,
 							   topic_cat,
 							   topic_by)
 				   VALUES('" . mysql_real_escape_string($_POST['topic_subject']) . "',
 							   NOW(),
-							   " . mysql_real_escape_string($_POST['topic_cat']) . ",
+							   " . mysql_real_escape_string($topic_cat) . ",
 							   " . $_SESSION['user_id'] . "
 							   )";
-					 
+			//echo $sql . '<br />' . $cat;
 			$result = mysql_query($sql);
 			if(!$result)
 			{
-				echo 'An error occured while inserting your data. Please try again later.<br /><br />' . mysql_error();
+				echo 'Ocorreu um erro. Por favor contacte o Administrador.<br /><br />' . mysql_error();
 				$sql = "ROLLBACK;";
 				$result = mysql_query($sql);
 			}
@@ -105,7 +111,7 @@ else
 				
 				if(!$result)
 				{
-					echo 'An error occured while inserting your post. Please try again later.<br /><br />' . mysql_error();
+					echo 'Ocorreu um erro. Por favor contacte o Administrador.<br /><br />' . mysql_error();
 					$sql = "ROLLBACK;";
 					$result = mysql_query($sql);
 				}
@@ -114,12 +120,12 @@ else
 					$sql = "COMMIT;";
 					$result = mysql_query($sql);
 					
-					echo 'You have succesfully created <a href="topic.php?id='. $topicid . '">your new topic</a>.';
+					echo 'Topico Criado. <a href="topic.php?id='. $topicid . '">your new topic</a>.';
 				}
 			}
 		}
 	}
 }
 
-//include 'includes/footer.php';
+include 'includes/footer.php';
 ?>

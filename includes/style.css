@@ -1,31 +1,195 @@
 body{
 	background-color: #333;
 	/* min-width: 62%; */
+	font-family: Calibri;
 }
 
 .main{
 	background-color: #cccccc;
 	color: #000;
 	width: 100%;
-	padding: 2px;
-	margin: 0px auto;
+	padding: 0;
+	margin: 0 auto;
 	position: relative;
-	
 	border: 1px solid white;
+}
+
+.mainMenu{
+	background: #bbbbbb;
+	padding: 0px;
+	font-size: 20px;
+	text-align: right;
+	word-spacing: -6px;
 }
 
 .userbar{
 	background-color: #aaa;
 	position: absolute;
-	top: 0px;
-	right: 0px;
+	top: 0;
+	right: 0;
 	border: 3px solid white;
 	border-radius: 0 0 5px 5px;
 	margin-right: 10px;
+	word-spacing: 0px;
+	//font-size: 14px;
 }
 
-.item{
-	
+.item1{
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9) );
+	background:-moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+	background-color:#f9f9f9;
+	border-radius: 30px 0 0 0;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#666666;
+	font-size:25px;
+	//font-weight:bold;
+	//font-style:normal;
+	height:40px;
+	line-height:40px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+	padding: 0 10px 0 15px;
+}
+.item1:hover{
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
+	background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
+	background-color:#e9e9e9;
+}
+.item1:active{
+	position:relative;
+	top:1px;
+}
+
+.item2{
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9) );
+	background:-moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+	background-color:#f9f9f9;
+	border-radius: 0 0 0 0;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#666666;
+	font-size:25px;
+	font-weight:bold;
+	font-style:normal;
+	height:40px;
+	line-height:40px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+	padding: 0 10px 0 10px;
+}
+
+.item2:hover{
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
+	background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
+	background-color:#e9e9e9;
+}
+.item2:active{
+	position:relative;
+	top:1px;
+}
+
+.item3{
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9) );
+	background:-moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+	background-color:#f9f9f9;
+	border-radius: 0 0 0 0;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#666666;
+	font-size:25px;
+	font-weight:bold;
+	font-style:normal;
+	height:40px;
+	line-height:40px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+	padding: 0 10px 0 10px;
+}
+
+.item3:hover{
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
+	background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
+	background-color:#e9e9e9;
+}
+.item3:active{
+	position:relative;
+	top:1px;
+}
+
+.item4{
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9) );
+	background:-moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+	background-color:#f9f9f9;
+	border-radius: 0 30px 0 0;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#666666;
+	font-size:25px;
+	font-weight:bold;
+	font-style:normal;
+	height:40px;
+	line-height:40px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+	padding: 0 15px 0 10px;
+}
+
+.item4:hover{
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
+	background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
+	background-color:#e9e9e9;
+}
+.item4:active{
+	position:relative;
+	top:1px;
+}
+
+.item5{
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9) );
+	background:-moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+	background-color:#f9f9f9;
+	border-radius: 10px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#666666;
+	font-size:15px;
+	//font-weight:bold;
+	//font-style:normal;
+	height:20px;
+	line-height:20px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+	padding: 0 8px 0 8px;
+}
+.item5:hover{
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
+	background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
+	background-color:#e9e9e9;
+}
+.item5:active{
+	position:relative;
+	top:1px;
 }
 
 a{
@@ -61,8 +225,62 @@ a{
 
 .tableNotices{
 	width:100%;
-	border: 1px solid red;
+	border: 1px solid blue;
 	border-radius: 0px 0px 5px 5px;
 	background: #555;
 	color: #fff;
 }
+
+.tdAll{
+	width:33%;
+	/*text-align: center;*/
+}
+
+
+/* Post.php */
+#tdUser{
+	width: 200px;
+	height: 150px;
+}
+
+#tdUserInf{
+	height: 100px;
+}
+
+#tdData{
+	height: 15px;
+}
+
+.tablepost{
+	width:100%;
+	border: 1px solid blue;
+	border-radius: 0px 0px 5px 5px;
+	background: #555;
+	color: #fff;
+	padding: 1px;
+}
+
+#tableAnwser{
+	margin: 0 auto;
+	padding: 0 auto;
+	width: 500px;
+	height: 300px;
+	border: 1;
+}
+
+textarea{
+	width: 600px;
+	height: 300px;
+}
+
+#buttonanwser{
+	margin: 0 auto;
+}
+
+
+
+
+
+
+
+

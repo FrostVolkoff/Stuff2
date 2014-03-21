@@ -4,13 +4,13 @@ include 'includes/header.php';
 
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
-	echo 'This file cannot be called directly.';
+	echo 'Ocorreu um erro. Por favor contacte o Administrador.';
 }
 else
 {
 	if(!$_SESSION['signed_in'])
 	{
-		echo 'You must be signed in to post a reply.';
+		echo 'Precisa de ter <a href="signin.php>inciar sessao</a> para responder ao topico."';
 	}
 	else
 	{
@@ -28,14 +28,14 @@ else
 						
 		if(!$result)
 		{
-			echo 'Your reply has not been saved, please try again later.';
+			echo 'Ocorreu um erro. Por favor contacte o Administrador.';
 		}
 		else
 		{
-			echo 'Your reply has been saved, check out <a href="topic.php?id=' . htmlentities($_GET['id']) . '">the topic</a>.';
+			echo 'Resposta adicionada! <a href="topic.php?id=' . htmlentities($_GET['id']) . '">Topico</a>.';
 		}
 	}
 }
 
-//include 'includes/footer.php';
+include 'includes/footer.php';
 ?>

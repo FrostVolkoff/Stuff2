@@ -7,11 +7,11 @@ echo '<h3>Sign up</h3><br />';
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     echo '<form method="post" action="">
- 	 	Username: <input type="text" name="user_name" /><br />
+ 	 	Nome de Utilizador: <input type="text" name="user_name" /><br />
  		Password: <input type="password" name="user_pass"><br />
 		Password again: <input type="password" name="user_pass_check"><br />
 		E-mail: <input type="email" name="user_email"><br />
- 		<input type="submit" value="Add category" />
+ 		<input type="submit" value="Register" />
  	 </form>';
 }
 else
@@ -22,16 +22,16 @@ else
 	{
 		if(!ctype_alnum($_POST['user_name']))
 		{
-			$errors[] = 'The username can only contain letters and numbers.';
+			$errors[] = 'O nome de utilizador apenas pode conter letras ou numeros.';
 		}
 		if(strlen($_POST['user_name']) > 30)
 		{
-			$errors[] = 'The username cannot be longer than 30 characters.';
+			$errors[] = 'O nome de utilizador nao pode ter mais de 30 caracteres.';
 		}
 	}
 	else
 	{
-		$errors[] = 'The username field must not be empty.';
+		$errors[] = 'O nome de utilizador nao pode ficar em branco.';
 	}
 	
 	
@@ -39,17 +39,17 @@ else
 	{
 		if($_POST['user_pass'] != $_POST['user_pass_check'])
 		{
-			$errors[] = 'The two passwords did not match.';
+			$errors[] = 'As password nao sao iguais.';
 		}
 	}
 	else
 	{
-		$errors[] = 'The password field cannot be empty.';
+		$errors[] = 'A password nao pode ficar em branco.';
 	}
 	
 	if(!empty($errors))
 	{
-		echo 'Uh-oh.. a couple of fields are not filled in correctly..<br /><br />';
+		echo 'Os campos nao foram preenchidos de forma correta.<br /><br />';
 		echo '<ul>';
 		foreach($errors as $key => $value)
 		{
@@ -70,12 +70,12 @@ else
 		$result = mysql_query($sql);
 		if(!$result)
 		{
-			echo 'Something went wrong while registering. Please try again later.';
+			echo 'Ocorreu um erro. Por favor contacte o Administrador.';
 			//echo mysql_error();
 		}
 		else
 		{
-			echo 'Succesfully registered. You can now <a href="signin.php">sign in</a> and start posting! :-)';
+			echo 'Registado. Pode agora <a href="signin.php">iniciar sessao</a> e comecar a postar';
 		}
 	}
 }

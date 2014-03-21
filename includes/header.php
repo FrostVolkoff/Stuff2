@@ -9,21 +9,24 @@
 <body>
 <div class="main">
 	<header>
-	<h1>Forum</h1>
-	<div class="menu">
-		<a class="item" href="index.php">Home</a> -
-		<a class="item" href="create_topic.php">Create a topic</a> -
-		<a class="item" href="create_cat.php">Create a category</a>
+	<h1>Forum</h1> <!-- tornar isto numa imagem !! -->
+	<div class="mainMenu">
+		<a class="item1" href="portal.php">Portal</a>
+		<a class="item2" href="newindex.php">Forum</a>
+		<a class="item3" href="#">Procurar</a>
+		<a class="item4" href="#">Membros</a>
+		<!-- <a class="item" href="create_topic.php">Create a topic</a> -
+		<a class="item" href="create_cat.php">Create a category</a> -->
 		
 		<div class="userbar">
 		<?php
-		if($_SESSION['signed_in'])
+		if(isset($_SESSION['signed_in']))
 		{
-			echo 'Hello <b>' . htmlentities($_SESSION['user_name']) . '</b>. Not you? <a class="item" href="signout.php">Sign out</a>';
+			echo 'Bem Vindo <b>' . htmlentities($_SESSION['user_name']) . '</b>.<a class="item" href="signout.php"> Sair</a>';
 		}
 		else
 		{
-			echo '<b><a class="item" href="signin.php">Sign in</a></b> or <b><a class="item" href="signup.php">create an account</a></b>';
+			echo '<b><a class="item" href="signin.php">Entrar</a></b> or <b><a class="item" href="signup.php">Registar</a></b>';
 		}
 		?>
 		</div>

@@ -10,12 +10,12 @@ if($_SESSION['signed_in'] == true)
 	$_SESSION['user_name'] = NULL;
 	$_SESSION['user_id']   = NULL;
 
-	echo 'Succesfully signed out, thank you for visiting.';
+	echo 'Sessao Terminada, obrigado pela visita.';
 }
 else
 {
-	echo 'You are not signed in. Would you <a href="signin.php">like to</a>?';
+	echo 'Nao tem sessão iniciada. Deseja <a href="signin.php">iniciar sessão</a>?';
 }
 
-//include 'includes/footer.php';
+include 'includes/footer.php';
 ?>

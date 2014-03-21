@@ -1,0 +1,14 @@
+body{
+	background-color: #333;
+	font-family: Calibri;
+}
+
+.main{
+	background-color: #ccc;
+	color: #000;
+	width: 100%;
+	padding: 0;
+	margin: 0 auto;
+	position: relative;
+	border: ;
+}

@@ -20,7 +20,7 @@ $result = mysql_query($sql);
 
 if(!$result)
 {
-	echo 'The categories could not be displayed, please try again later.';
+	echo 'As categorias nao poderam ser apresentadas. Por favor contacte o Administrador.';
 }
 else
 {
@@ -38,7 +38,7 @@ else
 		{
 			echo '<div class="leftpart">';
 			echo '3.<a href="category.php?id=' . $row['cat_id'] . '">';
-			echo '4.' . $row['cat_name'] . '</a></h3>'
+			echo '4.' . $row['cat_name'] . '</a></h3>';
 			echo '5.' . $row['cat_description'];
 			echo '</td>';
 			echo '<td class="rightpart">';

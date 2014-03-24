@@ -46,8 +46,7 @@ else
 			{
 		
 				echo '<form method="post" action="">
-					Assunto: <input type="text" name="topic_subject" /><br />
-					Categoria:'; 
+					Assunto: <input type="text" name="topic_subject" /><br />'; 
 				
 				/* echo '<select name="topic_cat">';
 					while($row = mysql_fetch_assoc($result))
@@ -120,7 +119,7 @@ else
 					$sql = "COMMIT;";
 					$result = mysql_query($sql);
 					
-					echo 'Topico Criado. <a href="topic.php?id='. $topicid . '">your new topic</a>.';
+					echo 'Topico Criado. <a href="newtopic.php?id='. $topicid . '">Topico</a>.';
 				}
 			}
 		}

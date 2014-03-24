@@ -8,17 +8,13 @@
 </head>
 <body>
 <div class="main">
+	<div id="header">
+	</div>
 
-<div id="header">
+	<div id="news">
+	</div>
 
-</div>
-
-<div id="news">
-
-</div>
-
-<div id="jogos">
-
-</div>
+	<div id="jogos">
+	</div>
 
 <?php include 'includes/footer.php'; ?>

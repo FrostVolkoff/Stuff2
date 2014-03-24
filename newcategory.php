@@ -16,13 +16,14 @@ $result = mysql_query($sql);
 <div forum>
 	<table class="tabletitle">
 		<tr>
-			<td>Topico</td>
-			<td>Criado</td>
+			<td class="tdAll">Topico</td>
+			<td class="tdAll">Criado</td>
+			<td class="tdAll">Por</td>
 			<?php
 			if(isset($_SESSION['signed_in']) && $_SESSION['user_level'] == 1)
 			{
 				echo '<a class="item5" href="create_topic.php?cat_id=' . $_GET['id'] .' ">Criar Topico</a>';
-				echo '<a class="item5" href="delete_topic.php">Remover</a><br />';
+				echo '<a class="item5" href="delete_topic.php">Remover</a> <br />';
 			}
 			else if(isset($_SESSION['signed_in']))
 			{
@@ -48,42 +49,73 @@ $result = mysql_query($sql);
 					{
 		?>
 			<tr>
-				<!--<td><?= ''; ?></td>-->
-				<td><?php $sql = "SELECT
-									topic_id,
-									topic_subject,
-									topic_date,
-									topic_cat,
-									topic_by
-								FROM
-									topics
-								WHERE
-									topic_cat = " . mysql_real_escape_string($_GET['id']);
-						$result = mysql_query($sql);
+				<td class="tdAll">
+				<?php $sql = "SELECT
+								topic_id,
+								topic_subject,
+								topic_date,
+								topic_cat,
+								topic_by
+							FROM
+								topics
+							WHERE
+								topic_cat = " . mysql_real_escape_string($_GET['id']);
+									
+					$result = mysql_query($sql);
 						
-						if(!$result)
+					if(!$result)
+					{
+						echo 'Os topicos nao poderam ser apresentados, contacte o Administrador';
+					}
+					else
+					{
+						if(mysql_num_rows($result) == 0)
 						{
-							echo 'Os topicos nao poderam ser apresentados, contacte o Administrador';
+							echo 'Nao existem topicos nesta categoria';
 						}
 						else
 						{
-							if(mysql_num_rows($result) == 0)
+							while($row = mysql_fetch_assoc($result))
 							{
-								echo 'Nao existem topicos nesta categoria';
-							}
-							else
-							{
-								while($row = mysql_fetch_assoc($result))
-								{
-									echo '<a href="newtopic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a>';
-								}
+								echo '<a href="newtopic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a>';
 							}
 						}
-						?>
+					}
+					?>
 				</td>
-				<td><?= date('d-m-Y', strtotime($row['topic_date'])) ?></td>
+				<td class="tdAll">
+					<?php
+						$posts_sql = "SELECT
+										posts.post_date,
+										posts.post_by,
+										users.user_name
+									FROM
+										posts
+									LEFT JOIN
+										users
+									ON
+										posts.post_by = users.user_id";
+						$posts_result = mysql_query($posts_sql);
+						
+						if(!$posts_result)
+						{
+							echo 'O topico nao pode ser apresentado. Por favor contacte o Administrador. ERRO 2';
+						}
+						else
+						{
+							while($posts_row = mysql_fetch_assoc($posts_result))
+							{
+					?>
+					<?= date('d-m-Y H:i', strtotime($posts_row['post_date'])); ?>
+						
+				</td>
+				<td class="tdAll">
+					<?= $posts_row['user_name']; ?>
+				</td>
 			</tr>
 		<?php
+							}
+						}
 					}
 				}
 			}

@@ -1,0 +1,9 @@
+function showCats($tag = NULL){
+	if (!isset($tag)){
+		$sql = 'SEL * F tab W';
+	} else {
+		$sql = 'SEL * F tab W tag = \'' . $tag . '\'';
+	}
+}
+
+showCat('hardware');

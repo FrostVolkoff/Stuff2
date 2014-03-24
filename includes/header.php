@@ -3,13 +3,13 @@
 
 <html>
 <head>
- 	<title>Forum</title>
+ 	<title>Stuff</title>
 	<link rel="stylesheet" href="includes/style.css" type="text/css">
 </head>
 <body>
 <div class="main">
 	<header>
-	<h1>Forum</h1> <!-- tornar isto numa imagem !! -->
+	<h1>Stuff</h1> <!-- tornar isto numa imagem !! -->
 	<div class="mainMenu">
 		<a class="item1" href="portal.php">Portal</a>
 		<a class="item2" href="newindex.php">Forum</a>
@@ -22,7 +22,7 @@
 		<?php
 		if(isset($_SESSION['signed_in']))
 		{
-			echo 'Bem Vindo <b>' . htmlentities($_SESSION['user_name']) . '</b>.<a class="item" href="signout.php"> Sair</a>';
+			echo 'Bem-Vindo <b>' . htmlentities($_SESSION['user_name']) . '</b>.<a class="item" href="signout.php"> Sair</a>';
 		}
 		else
 		{

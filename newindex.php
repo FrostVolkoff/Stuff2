@@ -1,5 +1,6 @@
 <?php
 include 'db/connect.php';
+//include 'db/functions.php';
 include 'includes/header.php';
 
 $sql = "SELECT
@@ -72,13 +73,13 @@ $result = mysql_query($sql);
 				
 				if(!$topicsresult)
 				{
-					echo 'Last topic could not be displayed.';
+					echo 'O ultimo topico nao pode ser apresentado, contacte o Administrador';
 				}
 				else
 				{
 					if(mysql_num_rows($topicsresult) == 0)
 					{
-						echo 'no topics';
+						echo 'Nao existem topicos nesta categoria';
 					}
 					else
 					{

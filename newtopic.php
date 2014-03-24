@@ -8,7 +8,7 @@ $sql = "SELECT
 		FROM
 			topics
 		WHERE
-			topics.topic_id =" . mysql_real_escape_string($_GET['id']);
+			topic_id =" . mysql_real_escape_string($_GET['id']);
 			
 $result = mysql_query($sql);
 ?>

@@ -16,6 +16,7 @@ else
 			Descricao da Categoria:<br /> <textarea name="cat_description" /></textarea><br /><br />
 			<input type="submit" value="Adicionar Categoria" />
 		 </form>';
+		 //Tag da Categoria: <input type="text" name="cat_tag" /><br />
 	}
 	else
 	{
